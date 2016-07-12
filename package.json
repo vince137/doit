@@ -4,8 +4,7 @@
   "version": "0.0.1",
   "author": {
     "name": "Vincent GONZALEZ",
-    "email": "v.gonzalez@orange.fr",
-    "url": "http://perdu.com"
+    "email": "v.gonzalez@orange.fr"
   },
   "scripts": {
     "start": "brunch watch --server",
