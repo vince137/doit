@@ -1,4 +1,4 @@
-DOIT!
+## DOIT!
 
 DoIT! is a todo list that allows you to organize and manage your tasks in team. The app is written in Angular2.
 
@@ -7,7 +7,10 @@ DoIT is using Angular2 rc4 for the front. I have designed it to work on a apache
 Don't forget to redirect all the request to the "/" on your server config.
 For the Back, doIT is using nodeJS with express server. Data are stored in a Mongo database.
 
-[WIP]
+## Project Status
+The project is in progress at this moment. I push all the new functionnality in the dev branch. 
+
+## License
 
 MIT License
 
