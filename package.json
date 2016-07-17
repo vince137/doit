@@ -22,26 +22,30 @@
     "@angular/router-deprecated": "2.0.0-rc.2",
     "@angular/upgrade": "2.0.0-rc.4",
     "angular2-in-memory-web-api": "0.0.14",
+    "body-parser": "^1.15.2",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",
     "es6-shim": "^0.35.0",
+    "express": "^4.14.0",
     "less-brunch": "^2.6.0",
+    "mongoose": "^4.5.4",
     "ng2-bootstrap": "^1.0.18",
     "reflect-metadata": "0.1.3",
     "rxjs": "5.0.0-beta.6",
     "zone.js": "0.6.12"
   },
   "devDependencies": {
+    "assetsmanager-brunch": "^1.8.1",
+    "auto-reload-brunch": "^2.7.1",
     "brunch": "^2.7.1",
     "brunch-typescript": "^1.8.3",
-    "auto-reload-brunch": "^2.7.1",
     "clean-css-brunch": "*",
     "css-brunch": "*",
     "environment-brunch": "*",
     "html-brunch": "*",
     "javascript-brunch": "*",
-    "uglify-js-brunch": "*",
     "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "typings": "^0.8.1",
+    "uglify-js-brunch": "*"
   }
 }

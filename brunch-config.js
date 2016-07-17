@@ -2,17 +2,20 @@ module.exports = {
 	npm: {
 		enabled: true
 	},
+	paths:{
+		watched: ['server','app']
+	},
 	files: {
 		javascripts: {
 			joinTo: {
 				'vendor.js': /^(app\/vendor)|(node_modules)/,
-				'main.js': /^app\/(?!vendor)/
+				'main.js': /^app\/(?!vendor)/,
 			}
 		},
 		stylesheets: {		
 			joinTo: {
 				'style/app.css': /^app/,
-				'css/vendor.css': /^(vendor|node_modules)/,
+				'css/vendor.css': /^(vendor|node_modules)/
 			}
 		},
 		templates: {
@@ -28,6 +31,11 @@ module.exports = {
 	plugins: {
 		less: {
 			cssModules: true
+		},
+		assetsmanager: {
+			copyTo: {
+				'server': ['server/*'] 
+			}
 		}
 	}
 }
