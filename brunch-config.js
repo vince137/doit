@@ -30,7 +30,7 @@ module.exports = {
 	},
 	plugins: {
 		less: {
-			cssModules: true
+			cssModules: false
 		},
 		assetsmanager: {
 			copyTo: {

@@ -5,13 +5,14 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService extends Api{
-    url: '/user/';
+    url: String;
     action: '';
     data:{}         
     constructor(action, data){
        super();
        this.data = data;
        this.action = action;
+       this.url = "user";
     }
 
 

@@ -4,10 +4,11 @@ import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 export abstract class Api {
-    private url_api: string = "localhost:3000/api/";
+    private url_api: string = "http://localhost:3000/api/";
     private result:  Object;
     private _http: Http;
     private headers = new Headers({ 'Content-Type': 'application/json' });
+    public data_api: {};
     
     constructor () {
         let injector = ReflectiveInjector.resolveAndCreate([HTTP_PROVIDERS]);
@@ -18,15 +19,14 @@ export abstract class Api {
     call() {
         switch (this.action) {
             case "insert":
-                this.insertAction();
-                break;
-            default:
+                return this.insertAction();
+            default: 
                 return "Command not found";
         }
     }
 
     insertAction() {
-        return this._http.post(this.url_api, JSON.stringify({firstName:'Joe',lastName:'Smith'}), {headers:this.headers})
+        return this._http.post(this.url_api + this.url, JSON.stringify({firstName:'Joe',lastName:'Smith'}), {headers:this.headers})
                 .toPromise()
                 .then(this.extractData)
                 .catch(this.handleError);
@@ -34,8 +34,13 @@ export abstract class Api {
 
     private handleError (error: any) {
         let errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'The API return a server error';
-        console.log(errMsg);
+        console.log(error);
         return Observable.throw(errMsg);
+    }
+
+    private extractData(res: Response) {
+        let body = res.json();
+        return body || { }; 
     }
 
 
