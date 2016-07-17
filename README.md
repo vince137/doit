@@ -8,7 +8,7 @@ Don't forget to redirect all the request to the "/" on your server config.
 For the Back, doIT is using nodeJS with express server. Data are stored in a Mongo database.
 
 ## Project Status
-The project is in progress at this moment. I push all the new functionnality in the dev branch. 
+The project is in progress at this moment. I push all the new functionality  in the dev branch. 
 
 ## License
 
