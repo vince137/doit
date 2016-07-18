@@ -1,29 +1,37 @@
 <div class="container">
-    <form *ngIf="active" (ngSubmit)="onSubmit()" #FormUserSignup="ngForm">
-        <div class="form-group">
-            <label for="first_name"> First Name </label>
-            <input type="text" class="form-control" required [(ngModel)]="User.first_name" name="first_name" #first_name="ngModel">
-        </div>
-        <div class="form-group">
-            <label for="last_name"> Last Name </label>
-            <input type="text" class="form-control" required [(ngModel)]="User.last_name" name="last_name" #last_name="ngModel">
-        </div>
-        <div class="form-group">
-            <label for="email"> Email Adress</label>
-            <input type="text" class="form-control" required [(ngModel)]="User.email" name="email" #email="ngModel">
-        </div>
-        <div class="form-group">
-            <label for="password"> Password </label>
-            <input type="text" class="form-control" required [(ngModel)]="User.password" name="password" #password="ngModel">
-        </div>
+    <div [hidden]="submitted">
+        <form *ngIf="active" (ngSubmit)="onSubmit()" #FormUserSignup="ngForm">
+            <div class="form-group">
+                <label for="first_name"> First Name </label>
+                <input type="text" class="form-control" required [(ngModel)]="User.first_name" name="first_name" #first_name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="last_name"> Last Name </label>
+                <input type="text" class="form-control" required [(ngModel)]="User.last_name" name="last_name" #last_name="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="email"> Email Adress</label>
+                <input type="text" class="form-control" required [(ngModel)]="User.email" name="email" #email="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="password"> Password </label>
+                <input type="password" class="form-control" required [(ngModel)]="User.password" name="password" #password="ngModel">
+            </div>
 
-        <div class="form-group">
-            <label for="password_retype"> Reenter password </label>
-            <input type="text" class="form-control" required name="password_retype">
-        </div>
-
-        <button type="button" class="btn btn-default" (click)="newUser()">
-            Register
-        </button>
-    </form>
+            <div class="form-group">
+                <label for="password_retype"> Reenter password </label>
+                <input type="password" class="form-control" name="password_retype" required  #passwordRetype="ngModel" [(ngModel)]="User.retype_password" match-field="password">
+            </div>
+            <div [hidden]="FormUserSignup.form.valid">
+                <button type="submit" class="btn btn-default" [disabled]="!FormUserSignup.form.valid">
+                    Register
+                </button>
+            </div>
+            <div [hidden]="!FormUserSignup.form.valid">
+                <button type="button" class="btn btn-default" (click)="newUser()">
+                Register
+                </button>
+            </div>
+        </form>
+    </div>
 </div>

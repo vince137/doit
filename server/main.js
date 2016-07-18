@@ -26,13 +26,27 @@ app.use(function (req, res, next) {
 router.route('/user')
   .post(function (req, res) {
     var User = require(__dirname + '/models/User');
-    var user_data = {};
-    user_data.first_name = req.body.first_name;
-    user_data.last_name = req.body.last_name;
-    user_data.password = req.body.password;
-    user_data.email = req.body.email;
-    user = new User(user_data).save();
-    res.json({ success: true, message: 'Successful register !' });
+    User.methods.findByEmail(req.body.email).exec(function (err, user_email) {
+
+      // Check if the email is empty
+      if (req.body.email == "") {
+        return res.json({alert: true, message : 'The email can\'t be empty.'});
+      } 
+
+      // Check if the email adress exists
+      if (user_email) {
+        return res.json({ alert: true, message: 'This email is already register.' });
+      }
+
+      // Insert the user into the database
+      var user_data = {};
+      user_data.first_name = req.body.first_name;
+      user_data.last_name = req.body.last_name;
+      user_data.password = req.body.password;
+      user_data.email = req.body.email;
+      user = new User(user_data).save();
+      return res.json({ success: true, message: 'Successful register !' });
+    });
   });
 
 // Define API path
