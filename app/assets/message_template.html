@@ -1,7 +1,9 @@
 <div class="alert alert-danger msg-top" [hidden]='!isDisplayAlert()'>
   {{message}}
+  <i class="fa fa-times" aria-hidden="true" (click)="closeNotification()"></i>
 </div>
 
 <div class="alert alert-success msg-top" [hidden]='!isDisplayMessage()'>
   {{message}}
+  <i class="fa fa-times" aria-hidden="true" (click)="closeNotification()"></i>
 </div>

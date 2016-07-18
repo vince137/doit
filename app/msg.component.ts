@@ -27,5 +27,9 @@ export class Message {
         return this.MessageService.getSuccess();
     }
 
+    closeNotification (event) {
+        this.MessageService.setMessage(null);
+    }
+
 
 }

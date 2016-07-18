@@ -15,7 +15,7 @@ module.exports = {
 		stylesheets: {		
 			joinTo: {
 				'style/app.css': /^app/,
-				'css/vendor.css': /^(vendor|node_modules)/
+				'style/vendor.css': /^(vendor|node_modules|bower_components)/
 			}
 		},
 		templates: {
@@ -34,7 +34,9 @@ module.exports = {
 		},
 		assetsmanager: {
 			copyTo: {
-				'server': ['server/*'] 
+				'server': ['server/*'],
+				 // Manualy add font-awesome fonts
+				'fonts' : ['bower_components/font-awesome/fonts/*']
 			}
 		}
 	}

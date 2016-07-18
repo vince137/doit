@@ -8,14 +8,20 @@ export class MessageService {
   private message: String;
 
   setMessage(data) {
-      if (data.success) {
-        this.alert  = false;
-        this.success = true;
-      } else if(data.alert) {
-        this.alert  = true;
+      if (data === null) {
+        this.alert = false;
         this.success = false;
+        this.message = "";
+      } else {
+        if (data.success) {
+            this.alert  = false;
+            this.success = true;
+        } else if(data.alert) {
+            this.alert  = true;
+            this.success = false;
+        }
+        this.message = data.message;
       }
-      this.message = data.message;
   }
 
   getAlert(){
