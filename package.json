@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "author": {
     "name": "Vincent GONZALEZ",
-    "email": "v.gonzalez@orange.fr"
+    "email": "vincent.gon@orange.fr"
   },
   "scripts": {
     "start": "brunch watch --server",
