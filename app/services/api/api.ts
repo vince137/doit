@@ -1,5 +1,5 @@
 import {Injectable, Inject, ReflectiveInjector} from '@angular/core';
-import {Http, HTTP_PROVIDERS} from '@angular/http';
+import {Http, HTTP_PROVIDERS, Headers} from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -26,7 +26,7 @@ export abstract class Api {
     }
 
     insertAction() {
-        return this._http.post(this.url_api + this.url, JSON.stringify({firstName:'Joe',lastName:'Smith'}), {headers:this.headers})
+        return this._http.post(this.url_api + this.url, JSON.stringify(this.data), {headers:this.headers})
                 .toPromise()
                 .then(this.extractData)
                 .catch(this.handleError);

@@ -5,6 +5,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Connect to the database
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/todolist');
+
+
 var router = express.Router();
 router.get('/', function (req, res) {
   res.json({ message: 'DoIt! API' });
@@ -20,7 +25,14 @@ app.use(function (req, res, next) {
 // User route
 router.route('/user')
   .post(function (req, res) {
-    res.json({ alert: true, message: 'Unable to send request' });
+    var User = require(__dirname + '/models/User');
+    var user_data = {};
+    user_data.first_name = req.body.first_name;
+    user_data.last_name = req.body.last_name;
+    user_data.password = req.body.password;
+    user_data.email = req.body.email;
+    user = new User(user_data).save();
+    res.json({ success: true, message: 'Successful register !' });
   });
 
 // Define API path
