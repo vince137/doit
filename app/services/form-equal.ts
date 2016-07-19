@@ -34,8 +34,4 @@ export class FormEqual {
     validate(c: FormControl) {
         return this.validator(c);
     }
-
-
-
 };
-
