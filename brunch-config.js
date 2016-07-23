@@ -34,7 +34,6 @@ module.exports = {
 		},
 		assetsmanager: {
 			copyTo: {
-				'server': ['server/*'],
 				 // Manualy add font-awesome fonts
 				'fonts' : ['bower_components/font-awesome/fonts/*']
 			}

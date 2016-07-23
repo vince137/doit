@@ -20,6 +20,8 @@ export abstract class Api {
         switch (this.action) {
             case "insert":
                 return this.insertAction();
+            case "update":
+                return this.updateAction();
             default: 
                 return "Command not found";
         }
@@ -27,6 +29,13 @@ export abstract class Api {
 
     insertAction() {
         return this._http.post(this.url_api + this.url, JSON.stringify(this.data), {headers:this.headers})
+                .toPromise()
+                .then(this.extractData)
+                .catch(this.handleError);
+    }
+
+    updateAction() {
+        return this._http.put(this.url_api + this.url + "/" + this.token, JSON.stringify(this.data), {headers:this.headers})
                 .toPromise()
                 .then(this.extractData)
                 .catch(this.handleError);
