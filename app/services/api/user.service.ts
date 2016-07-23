@@ -9,7 +9,7 @@ export class UserService extends Api{
     token: String;
     action: '';
     data:{}         
-    constructor(action, token, data){
+    constructor(action, data, token){
        super();
        this.data = data;
        this.action = action;

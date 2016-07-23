@@ -14,7 +14,7 @@ export class ConfirmationComponent {
     ngOnInit() {
         this.route.params.subscribe(params => {
             let token = params["token"];
-            var insert_user = new UserService('update', token, {validated: true}).call().then(data => {
+            var insert_user = new UserService('update', {validated: true}, token).call().then(data => {
                 if (data.success) {
                     this.router.navigate(['login']);
                 } else {
