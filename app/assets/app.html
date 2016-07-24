@@ -16,11 +16,14 @@
                <li [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']">
                     <a [routerLink]="['/']">Home</a>
                 </li>
-                <li [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']">
+                <li [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']" [hidden]="SessionService.isAuthentificated()">
                     <a [routerLink]="['/login']">Login</a>
                 </li>
-                 <li [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']">
+                 <li [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']"  [hidden]="SessionService.isAuthentificated()">
                     <a [routerLink]="['/signup']">Signup</a>
+                </li>
+                <li [routerLinkActiveOptions]="{exact:true}" [routerLinkActive]="['active']"  [hidden]="!SessionService.isAuthentificated()">
+                    <a [routerLink]="['/dashboard']">Dashboard</a>
                 </li>
             </ul>
         </div>

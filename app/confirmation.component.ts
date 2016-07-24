@@ -9,7 +9,6 @@ import {MessageService} from './services/messageService.ts';
 
 @Injectable()
 export class ConfirmationComponent { 
-
     constructor (private route: ActivatedRoute, private MessageService: MessageService, private router:Router) { }
     ngOnInit() {
         this.route.params.subscribe(params => {

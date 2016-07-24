@@ -1,5 +1,9 @@
+import  { Injectable, ElementRef } from '@angular/core';
+
+@Injectable()
 export class SessionService{
 
+    public routes: {};
     private storage: any;
     constructor() { 
         this.storage = localStorage;
@@ -13,7 +17,7 @@ export class SessionService{
      */
 
     isAuthentificated() {
-        var user_login = this.checkLocalStorage('user_login');
+        var user_login = this.checkLocalStorage('user_login');  
         if (user_login === null) {
             return false;
         } 
@@ -23,6 +27,4 @@ export class SessionService{
     checkLocalStorage(key: string)  {
         return this.storage.getItem(key);
     }
-
-
 }
