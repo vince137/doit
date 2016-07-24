@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FormUserSignupComponent } from './form-userSignup.component';
+import { FormUserSignupComponent } from './forms/userSignup.component';
 
 
 

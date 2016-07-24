@@ -1,16 +1,16 @@
 import { Component, Injectable, ViewChild } from '@angular/core';
 import { NgForm }    from '@angular/forms';
-import {User} from './models/User.ts';
-import {UserService} from './services/api/user.service.ts';
-import {AppComponent} from './app.component.ts';
-import { MessageService } from './services/messageService.ts';
-import {FormEqual} from './services/form-equal.ts';
-import {EmailValidator} from './services/form-email.ts';
+import {User} from '../models/User.ts';
+import {UserService} from '../services/api/user.service.ts';
+import {AppComponent} from '../app.component.ts';
+import { MessageService } from '../services/messageService.ts';
+import {FormEqual} from '../services/form-equal.ts';
+import {EmailValidator} from '../services/form-email.ts';
 
 
 @Component({
     selector: 'signup-form',
-    templateUrl: 'form-userSignup.html',
+    templateUrl: 'forms/form-userSignup.html',
     directives: [FormEqual,EmailValidator]
 })      
 

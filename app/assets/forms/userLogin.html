@@ -1,0 +1,24 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <form *ngIf="active" (ngSubmit)="onSubmit()" #FormUserLogin="ngForm">
+            <div class="form-group">
+                <label for="email"> Email Adress</label>
+                <input type="email" email-field class="form-control" required [(ngModel)]="User.email" name="email" #email="ngModel">
+            </div>
+            <div class="form-group">
+                <label for="password"> Password </label>
+                <input type="password" class="form-control" required [(ngModel)]="User.password" name="password" #password="ngModel">
+            </div>
+            <div [hidden]="FormUserLogin.form.valid">
+                <button type="submit" class="btn btn-default" [disabled]="!FormUserLogin.form.valid">
+                    Register
+                </button>
+            </div>
+            <div [hidden]="!FormUserLogin.form.valid">
+                <button type="button" class="btn btn-default" (click)="loginUser()">
+                Register
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
