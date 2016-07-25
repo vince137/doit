@@ -2,6 +2,8 @@ import {Component, Injectable} from '@angular/core';
 import { ROUTER_DIRECTIVES, Router, RouterLink, RouterConfig} from '@angular/router';
 import {Message} from './msg.component.ts';
 import { SessionService } from './services/sessionService.ts';
+import {UserService } from './services/api/user.service.ts';
+import {UserModel} from './models/User.ts';
 
 @Component({
 	selector: 'app',
@@ -12,7 +14,5 @@ import { SessionService } from './services/sessionService.ts';
 
 @Injectable()
 export class AppComponent { 
-	constructor(private SessionService: SessionService) {	
-		
-	}
+	constructor(private SessionService: SessionService) {	}
 }

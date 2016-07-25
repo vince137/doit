@@ -1,1 +1,17 @@
-<h2> Dashboard </h2>
+<div class="col-xs-12" [hidden]="User.team"> 
+    <h2> Dashboard </h2>
+
+    <p style="font-weight:bold;"> 
+        You dont have any team yet.
+    </p>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Create a team
+        </div>
+        <div class="panel-body">
+            <form-new_team> </form-new_team>
+        </div>
+    </div>
+</div>  

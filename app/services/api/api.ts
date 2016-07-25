@@ -18,6 +18,8 @@ export abstract class Api {
 
     call() {
         switch (this.action) {
+            case "select":
+                return this.selectAction(); 
             case "insert":
                 return this.insertAction();
             case "update":
@@ -41,6 +43,14 @@ export abstract class Api {
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
+    }
+
+    selectAction() {
+        return this._http.get(this.url_api + this.url + "/" + this.token, {headers: this.headers })
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+
     }
 
     loginAction() {

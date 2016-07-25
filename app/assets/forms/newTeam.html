@@ -1,0 +1,11 @@
+<form *ngIf="active" (ngSubmit)="onSubmit()" #FormCreateTeam="ngForm">
+    <div class="form-group">
+        <label for="team_name">
+             Team Name
+        </label>
+        <input type="text" class="form-control" [(ngModel)]="Team.name" name="team_name" #name="ngModel" required>
+    </div>
+    <button type="button" class="btn btn-default" (click)="createTeam()" [disabled]="!FormCreateTeam.form.valid">
+        Create
+    </button>
+</form>
