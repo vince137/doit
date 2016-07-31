@@ -13,11 +13,13 @@ import {FormNewTeam} from './forms/newTeam.ts';
 @Injectable()
 export class dashboardComponent {
     private User:{};
+    private loaded =false;
     constructor(private SessionService: SessionService) {
         this.User = new UserModel();
         var user_infos = new UserService('select', {}, SessionService.getLocalStorage("user_login"))
         .call().then(data => {
             this.User = new UserModel(data.data);
+            this.loaded = true;
         });
     }
 

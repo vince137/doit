@@ -1,17 +1,35 @@
-<div class="col-xs-12" [hidden]="User.team"> 
-    <h2> Dashboard </h2>
-
-    <p style="font-weight:bold;"> 
-        You dont have any team yet.
-    </p>
-
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            Create a team
-        </div>
-        <div class="panel-body">
-            <form-new_team> </form-new_team>
+<div class="row">
+    <div id="dashboard" [hidden]="!loaded">
+        <div class="col-xs-12" [hidden]="User.team"> 
+            <h2> Dashboard </h2>
+            <p style="font-weight:bold;"> 
+                You dont have any team yet. 
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Create a team
+                </div>
+                <div class="panel-body">
+                    <form-new_team> </form-new_team>
+                </div>
+            </div>
+        </div>      
+        <div [hidden]="!User.team">
+            <div class="dashboard_full">
+                <div class="col-xs-2 quick-menu flex"> 
+                    Projects
+                </div>
+                <div class="col-xs-10 no-padding flex multiple-flex">
+                    <ul class="header_tabs">
+                        <li>Main</li>
+                        <li>Options</li>
+                        <li>Invit people</li>
+                    </ul>
+                    <div class="col-xs-12 dash_container dashboard_main">
+                        <h2>My tasks</h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>  
+</div>
